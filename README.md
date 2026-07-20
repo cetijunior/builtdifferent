@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Built Different 3.0 — Website
 
-## Getting Started
+Cut-throat, conversion-optimized landing page for **Built Different 3.0** (October 24–25, 2026 · Tirana) — founder Pasquale Minasi.
 
-First, run the development server:
+## Develop
 
 ```bash
+npm install
+cp .env.example .env.local
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Variable | Purpose |
+|---|---|
+| `NEXT_PUBLIC_STRIPE_STANDARD` | Standard tier checkout URL |
+| `NEXT_PUBLIC_STRIPE_VIP` | VIP tier checkout URL |
+| `NEXT_PUBLIC_STRIPE_ELITE` | Elite tier checkout URL |
+| `NEXT_PUBLIC_WHATSAPP` | WhatsApp number (digits only, e.g. `355691234567`) — enables floating chat button |
+| `NEXT_PUBLIC_CONTACT_EMAIL` | Contact email shown in footer / forms |
+| `NEXT_PUBLIC_VIDEO_PASQUALE` | YouTube ID for main experience video |
+| `NEXT_PUBLIC_VIDEO_ANDY` | YouTube ID for Andy Elliott endorsement (falls back to Pasquale video) |
+| `NEXT_PUBLIC_EARLY_BIRD_DEADLINE` | ISO date for countdown timer |
 
-## Learn More
+## Client assets
 
-To learn more about Next.js, take a look at the following resources:
+Drop production files into `public/assets/` — see [public/assets/README.md](./public/assets/README.md).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Path | Use |
+|---|---|
+| `pasquale/hero.jpg` | Founder section hero portrait |
+| `pasquale/stage.jpg` | On-stage photography |
+| `pasquale/headshot.jpg` | Tight crop |
+| `events/bd20-*.jpg` | Moments gallery stills |
+| `testimonials/attendee-*.jpg` | Video testimonial posters |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Until files are added, Pasquale uses [unavatar.io](https://unavatar.io) as fallback; moments link to Instagram/YouTube.
 
-## Deploy on Vercel
+## Deploy
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run build
+npm start
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Deploy to [Vercel](https://vercel.com) — connect the `web` directory.
+
+## Before launch checklist
+
+- [ ] Stripe links for all 3 tiers (VIP + Elite)
+- [ ] WhatsApp number for float + capture funnel
+- [ ] Founder photography in `public/assets/pasquale/`
+- [ ] Named attendee video quotes (replace `[CONFIRM]` placeholders in `src/lib/content.ts`)
+- [ ] BD 3.0 venue confirmation
+- [ ] Real refund policy at `/legal/refund`
+- [ ] Wire capture form to CRM / Mailchimp
+- [ ] Point @builtdifferent.official bio to production domain
+
+## Stack
+
+Next.js 16 · Tailwind v4 · Motion · Anton + DM Sans · Lucide icons
+
+## Page structure
+
+Hero → Credentials → Andy endorsement → Qualifier → Experience → Legacy → Moments → Voices → Success stories → Speakers → Agenda → Pricing → Founder → Capture → FAQ → Final CTA
