@@ -1,0 +1,8 @@
+# Local master footage (too large for deploy upload)
+public/assets/video/hero.mp4
+
+# Build / deps (also ignored by default, belt-and-suspenders)
+.node_modules
+.next
+.DS_Store
+*.tsbuildinfo
