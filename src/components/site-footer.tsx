@@ -183,6 +183,17 @@ export function SiteFooter() {
               Policy. Unsubscribe anytime.
             </p>
           </div>
+          <p className="mt-6 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-fg-subtle">
+            Made by{" "}
+            <a
+              href="https://rritjesade.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-fg-muted transition-colors hover:text-accent"
+            >
+              Rritje Sade
+            </a>
+          </p>
         </div>
       </div>
     </footer>
