@@ -18,14 +18,18 @@ async function preloadOptionalImage(src: string): Promise<void> {
   }
 }
 
-/** Buffer enough of the hero MP4 to play — not the full 200MB+ file. */
+/** Buffer enough of the hero MP4 to start — cap wait so loader stays snappy. */
 function preloadHeroVideo(src: string): Promise<void> {
   return new Promise((resolve) => {
     const video = document.createElement("video");
     video.preload = "auto";
     video.muted = true;
+    video.playsInline = true;
 
+    let settled = false;
     const finish = () => {
+      if (settled) return;
+      settled = true;
       video.removeAttribute("src");
       video.load();
       resolve();
@@ -33,7 +37,8 @@ function preloadHeroVideo(src: string): Promise<void> {
 
     video.addEventListener("canplay", finish, { once: true });
     video.addEventListener("error", finish, { once: true });
-    setTimeout(finish, 15000);
+    // Never hold the intro longer than ~2.8s for video alone
+    setTimeout(finish, 2800);
     video.src = src;
     video.load();
   });

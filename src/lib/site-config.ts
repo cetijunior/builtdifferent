@@ -29,7 +29,7 @@ export const siteConfig = {
     andy: process.env.NEXT_PUBLIC_VIDEO_ANDY ?? "",
     andyVimeo: process.env.NEXT_PUBLIC_VIDEO_ANDY_VIMEO ?? "1108653159",
     andyIgShortcode: "DXTeWfuiJJx",
-    /** 720p web hero — local file in public/assets/video/ */
+    /** Hero loop — first ~11.5s of master cut (1080p stream-copy) */
     heroMp4:
       process.env.NEXT_PUBLIC_HERO_VIDEO_MP4 ?? "/assets/video/hero-web.mp4",
   },
