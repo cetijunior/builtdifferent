@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Anton, DM_Sans, JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { AppShell } from "@/components/app-shell";
 import "./globals.css";
 import { siteConfig } from "@/lib/site-config";
@@ -94,6 +95,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-full bg-bg-void text-fg">
         <AppShell>{children}</AppShell>
+        <Analytics />
       </body>
     </html>
   );
