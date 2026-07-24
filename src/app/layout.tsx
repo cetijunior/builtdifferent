@@ -21,6 +21,9 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://builtdifferent-bice.vercel.app",
+  ),
   title: "Built Different 3.0 — October 24–25 · Tirana | Pasquale Minasi",
   description:
     "The system that built a multi-million euro empire — taught live in Tirana. Sales. Leadership. Discipline. 1,000+ tickets. Built Different 3.0 with Pasquale Minasi.",
@@ -29,6 +32,13 @@ export const metadata: Metadata = {
     description:
       "Operator-grade event. No theory. No mercy. Secure your seat.",
     type: "website",
+    siteName: "Built Different",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Built Different 3.0 — Tirana, October 24–25, 2026",
+    description:
+      "Operator-grade event. No theory. No mercy. Secure your seat.",
   },
 };
 
